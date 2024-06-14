@@ -5,12 +5,12 @@ nav ul{justify-content: space-around;}
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Altura completa de la pantalla */
+    height: 100vh; 
     overflow: hidden;
   }
-  
   .main-image-container img {
-    width: 100%;
+    width: 100%; height: auto;
+    object-fit: cover;}
 .map-container {width: fit-content; height: fit-content;     flex: 1;
     margin-right: 20px;}
 .informacion-contacto {padding: 10px;background-color: aliceblue;}

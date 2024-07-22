@@ -1,4 +1,5 @@
 body, html {background-color:rgb(21, 169, 223); height: 100%; justify-content: center; align-items: center;margin: 0;}
+.portada{display: flex; flex-wrap: wrap;}
 .contenedor {
     display: flex;
     justify-content: space-around; 

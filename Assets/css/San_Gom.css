@@ -19,8 +19,13 @@ main img {justify-content: center; max-width: 100%; max-height: auto;}
 .box img{max-width: 100%; height: auto; text-align: center;}
 .ubicacion-contacto {display: flex;flex-wrap: wrap;}
 .formulario-contacto {flex: 1;}
-@media screen and (max-width: 100%) {
+@media (max-width: 576px) {
     .ubicacion-contacto {
-        flex-direction: column;}
+        flex-direction: column;
+    margin-inline: 0;}
     .map-container {
-        margin-right: 0;}}
+        margin-right: 0;
+    margin-left: 0;}
+
+    .Misión, .visión{width: 90vw; margin: 0; font-size: smaller;}
+    }

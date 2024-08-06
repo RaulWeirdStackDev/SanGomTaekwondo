@@ -29,3 +29,5 @@ main img {justify-content: center; max-width: 100%; max-height: auto;}
 
     .Misión, .visión{width: 90vw; margin: 0; font-size: 16px; padding-inline: 20%;}
     }
+
+    .map, .form {display: grid; max-width: 70vw; margin-block: 10px;}

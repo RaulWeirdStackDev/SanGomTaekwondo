@@ -27,5 +27,5 @@ main img {justify-content: center; max-width: 100%; max-height: auto;}
         margin-right: 0;
     margin-left: 0;}
 
-    .Misión, .visión{width: 90vw; margin: 0; font-size: smaller;}
+    .Misión, .visión{width: 90vw; margin: 0; font-size: small; padding-inline: 20%;}
     }

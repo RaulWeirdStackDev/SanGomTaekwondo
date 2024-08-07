@@ -28,6 +28,8 @@ main img {justify-content: center; max-width: 100%; max-height: auto;}
     margin-left: 0;}
     .container{width:fit-content;} 
     .Misión, .visión{width: 99vw; margin: 0; font-size: 15px; padding-inline: 20%; text-align: justify; margin-block: 10px;}
-    }
-
     .map, .form {display: grid; max-width: 90vw; max-height: 100vh; margin-block: 10px; margin-inline-start: 0;}
+        
+}
+
+    

@@ -1,39 +1,134 @@
-body, html {background-color:rgb(21, 169, 223); height: 100%; justify-content: center; align-items: center;margin: 0;}
-.portada{display: flex; flex-wrap: wrap;}
+body,
+html {
+  background-color: rgb(21, 169, 223);
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.portada {
+  display: flex;
+  flex-wrap: wrap;
+}
 /*.portada img {height: 65vh; width: 100vw;}*/
 .contenedor {
-    display: flex;
-    justify-content: space-around; 
-    width: 100%; 
-    max-width: 800px; 
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 800px;
 }
-nav p{display: inline;}
-nav ul{justify-content: space-around;}
-main img {justify-content: center; max-width: 100%; max-height: auto;}
-.map-container {width: fit-content; height: fit-content;     flex: 1;
-    margin-right: 20px;}
-.informacion-contacto {padding: 10px;background-color: aliceblue;}
-.titulo {text-align: center;}
-.Misión, .visión{padding: 10px;margin:2cm; background-color: aliceblue;text-align: center;font-size: larger;}
-.boxes{display: flex; justify-content: left; flex-wrap: wrap;}
-.box{flex:0 1 20%; box-sizing: border-box;}
-.box img{max-width: 100%; height: auto; text-align: center;}
-.ubicacion-contacto {display: flex;flex-wrap: wrap;}
-.formulario-contacto {flex: 1;}
-@media (max-width: 576px) {
-    .ubicacion-contacto {
-        flex-direction: column;
-    margin-inline: 0;}
-    .map-container {
-        margin-right: 0;
-    margin-left: 0;}
-    .container{width:fit-content;} 
-    .Misión, .visión{width: 99vw; margin: 0; font-size: 15px; padding-inline: 20%; text-align: justify; margin-block: 10px;}
-    .map, .form {display: grid; max-width: 90vw; max-height: 100vh; margin-block: 10px; margin-inline-start: 0;}
-        
+nav p {
+  display: inline;
+}
+nav ul {
+  justify-content: space-around;
+}
+main img {
+  justify-content: center;
+  max-width: 100%;
+  max-height: auto;
+}
+.map-container {
+  width: fit-content;
+  height: fit-content;
+  flex: 1;
+  margin-right: 20px;
+}
+.informacion-contacto {
+  padding: 10px;
+  background-color: aliceblue;
+}
+.titulo {
+  text-align: center;
+}
+.Misión,
+.visión {
+  padding: 10px;
+  margin: 2cm;
+  background-color: aliceblue;
+  text-align: center;
+  font-size: larger;
+}
+.boxes {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+.box {
+  flex: 0 1 20%;
+  box-sizing: border-box;
+}
+.box img {
+  max-width: 100%;
+  height: auto;
+  text-align: center;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-auto-rows: 250px;
+  gap: 50px;
 }
 
-@media (min-width: 576px) { .map{width: 500px; height: 400px;}
-    
+.imagen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
 }
-    
+.imagen img {
+  width: 150px;
+  height: auto;
+  transition: all 0.2s ease-in;
+  border-radius: 1000px;
+}
+.imagen img:hover {
+    border-radius: 0%;
+    width: 400px;
+    height: auto;
+  }
+
+.ubicacion-contacto {
+  display: flex;
+  flex-wrap: wrap;
+}
+.formulario-contacto {
+  flex: 1;
+}
+@media (max-width: 576px) {
+  .ubicacion-contacto {
+    flex-direction: column;
+    margin-inline: 0;
+  }
+  .map-container {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .container {
+    width: fit-content;
+  }
+  .Misión,
+  .visión {
+    width: 99vw;
+    margin: 0;
+    font-size: 15px;
+    padding-inline: 20%;
+    text-align: justify;
+    margin-block: 10px;
+  }
+  .map,
+  .form {
+    display: grid;
+    max-width: 90vw;
+    max-height: 100vh;
+    margin-block: 10px;
+    margin-inline-start: 0;
+  }
+}
+
+@media (min-width: 576px) {
+  .map {
+    width: 500px;
+    height: 400px;
+  }
+}

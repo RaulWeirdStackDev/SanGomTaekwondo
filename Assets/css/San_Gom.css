@@ -65,31 +65,19 @@ main img {
   height: auto;
   text-align: center;
 }
-.grid-container {
-  display: grid;
-  grid-template-columns: 2fr 2fr;
-  grid-auto-rows: 250px;
-  gap: 50px;
-}
 
-.imagen {
+.galeria {
   display: flex;
+  flex-wrap: nowrap;
+  max-width: 90vw;
   justify-content: center;
-  align-items: center;
-  height: 70vh;
 }
 .imagen img {
-  width: 150px;
+  width: 200px;
   height: auto;
-  transition: all 0.2s ease-in;
-  border-radius: 1000px;
+  margin: 10px;
+  transition: all 0.5ms ease-in-out;
 }
-.imagen img:hover {
-    border-radius: 0%;
-    width: 400px;
-    height: auto;
-  }
-
 .ubicacion-contacto {
   display: flex;
   flex-wrap: wrap;
@@ -97,6 +85,7 @@ main img {
 .formulario-contacto {
   flex: 1;
 }
+footer{position: absolute; bottom: 0; width: 100%;}
 @media (max-width: 576px) {
   .ubicacion-contacto {
     flex-direction: column;

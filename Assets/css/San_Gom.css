@@ -23,6 +23,8 @@ nav p {
 nav ul {
   justify-content: space-around;
 }
+.navbar{border-bottom: solid black 15px;}
+
 main img {
   justify-content: center;
   max-width: 100%;

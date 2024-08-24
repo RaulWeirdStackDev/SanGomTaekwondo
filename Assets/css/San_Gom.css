@@ -68,16 +68,18 @@ main img {
 
 .galeria {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   max-width: 90vw;
   justify-content: center;
 }
 .imagen img {
-  width: 200px;
-  height: auto;
+  width: auto;
+  height: 200px;
   margin: 10px;
   transition: all 0.5ms ease-in-out;
 }
+
+.imagen img:active{width: auto; height: 300px;}
 .ubicacion-contacto {
   display: flex;
   flex-wrap: wrap;
@@ -85,7 +87,7 @@ main img {
 .formulario-contacto {
   flex: 1;
 }
-footer{position: absolute; bottom: 0; width: 100%;}
+footer{position: relative; bottom: 0; width: 100%;}
 @media (max-width: 576px) {
   .ubicacion-contacto {
     flex-direction: column;

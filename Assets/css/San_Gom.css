@@ -9,6 +9,8 @@ html {
 .portada {
   display: flex;
   flex-wrap: wrap;
+  width: 100vw;
+  height: auto;
 }
 /*.portada img {height: 65vh; width: 100vw;}*/
 .contenedor {

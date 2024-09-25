@@ -5,14 +5,22 @@ html {
   justify-content: center;
   align-items: center;
   margin: 0;
+  padding: 0;
 }
 .portada {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
   width: 100vw;
   height: auto;
+  margin: 0;
+  padding: 0;
 }
-/*.portada img {height: 65vh; width: 100vw;}*/
+.portada img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
 .contenedor {
   display: flex;
   justify-content: space-around;
@@ -25,7 +33,9 @@ nav p {
 nav ul {
   justify-content: space-around;
 }
-.navbar{border-bottom: solid black 15px;}
+.navbar {
+  border-bottom: solid black 15px;
+}
 
 main img {
   justify-content: center;
@@ -81,7 +91,10 @@ main img {
   transition: all 0.5ms ease-in-out;
 }
 
-.imagen img:active{width: auto; height: 300px;}
+.imagen img:active {
+  width: auto;
+  height: 300px;
+}
 .ubicacion-contacto {
   display: flex;
   flex-wrap: wrap;
@@ -89,7 +102,15 @@ main img {
 .formulario-contacto {
   flex: 1;
 }
-footer{position: relative; bottom: 0; width: 100%;}
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+.index {
+  width: 100vw;
+  height: 100vh;
+}
 @media (max-width: 576px) {
   .ubicacion-contacto {
     flex-direction: column;

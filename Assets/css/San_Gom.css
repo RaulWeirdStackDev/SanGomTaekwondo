@@ -118,9 +118,14 @@ footer {
 }
 
 @media (max-width: 576px) {
+  .contactoBody{overflow-x: hidden;}
   .ubicacion-contacto {
     flex-direction: column;
     margin-inline: 0;
+  }
+  .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
   }
   .map-container {
     margin-right: 0;

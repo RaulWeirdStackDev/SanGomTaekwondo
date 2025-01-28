@@ -79,8 +79,8 @@ main img {
 }
 
 .galeria {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto auto auto;
   max-width: 90vw;
   justify-content: center;
 }
@@ -133,15 +133,17 @@ footer {
   }
   .container {
     width: fit-content;
+    display: grid;
   }
   .Misión,
-  .visión {
+  .visión, .instructores {
     width: 99vw;
     margin: 0;
     font-size: 15px;
     padding-inline: 20%;
     text-align: justify;
     margin-block: 10px;
+    background-color: aliceblue;
   }
   .map,
   .form {

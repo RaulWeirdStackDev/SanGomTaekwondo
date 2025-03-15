@@ -6,6 +6,7 @@ html {
   align-items: center;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 .portada {
   display: flex;
@@ -49,8 +50,16 @@ main img {
   margin-right: 20px;
 }
 .informacion-contacto {
-  padding: 10px;
-  background-color: aliceblue;
+  max-width: 100%;
+  padding: 20px;
+  margin: 0 20px 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.informacion-contacto p {
+  margin: 10px 0;
 }
 .titulo {
   text-align: center;
@@ -104,14 +113,54 @@ main img {
 .ubicacion-contacto {
   display: flex;
   flex-wrap: wrap;
+  gap: 20px; /* Espacio entre mapa y formulario */
+  max-width: 100%; /* No exceder el ancho de la pantalla */
+  margin: 20px; /* Reducir márgenes fijos */
 }
 .formulario-contacto {
   flex: 1;
+  min-width: 250px; /* Tamaño mínimo */
+  max-width: 100%; /* No exceder el contenedor */
+  padding: 20px;
+  background-color: #f8f9fa; /* Fondo claro */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.formulario-contacto label {
+  font-weight: bold;
+}
+.formulario-contacto input,
+.formulario-contacto textarea {
+  width: 100%; /* Ancho completo del contenedor */
+  max-width: 100%; /* Evitar desbordamiento */
+  box-sizing: border-box; /* Incluir padding y borde en el ancho */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.formulario-contacto textarea {
+  resize: vertical; /* Permitir solo redimensionar verticalmente */
+  min-height: 100px;
+}
+
+.formulario-contacto button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.formulario-contacto button:hover {
+  background-color: #0056b3;
 }
 footer {
   position: relative;
   bottom: 0;
   width: 100%;
+  padding: 20px 0;
 }
 .index {
   width: 100vw;
@@ -127,16 +176,36 @@ footer {
   .contactoBody{overflow-x: hidden;}
   .ubicacion-contacto {
     flex-direction: column;
-    margin-inline: 0;
+    margin: 10px; /* Reducir márgenes */
+    gap: 10px;
   }
   .container-fluid {
     padding-left: 0;
     padding-right: 0;
   }
   .map-container {
+    min-width: 100%; /* Ocupar todo el ancho */
     margin-right: 0;
-    margin-left: 0;
   }
+  .map-container iframe {
+    width: 100%; /* Ancho completo del contenedor */
+    height: 200px; /* Altura fija, pero ajustable */
+    border: 0;
+  }
+  .formulario-contacto {
+    padding: 15px;
+    margin-right: 0; /* Eliminar margen derecho */
+  }
+  .informacion-contacto {
+    margin: 0 10px 10px;
+    padding: 15px;
+  }
+
+  .formulario-contacto input,
+  .formulario-contacto textarea {
+    font-size: 14px; /* Reducir tamaño de fuente para mejor ajuste */
+  }
+
   .container {
     width: fit-content;
     display: grid;
@@ -162,8 +231,7 @@ footer {
 }
 
 @media (min-width: 576px) {
-  .map {
-    width: 500px;
-    height: 400px;
+  .map-container iframe {
+    height: 300px; /* Mayor altura en pantallas más grandes */
   }
 }

@@ -104,31 +104,22 @@
           class="map"
         ></iframe>
       </div>
-      <div class="formulario-contacto mb-5 pb-4 pt-2 bg-light me-5 ps-5">
+      <div class="formulario-contacto mb-5 pb-4 pt-2 bg-light">
         <h2>Formulario de Contacto</h2>
         <form action="/procesar_formulario" method="post">
           <p><label for="nombre">Nombre:</label></p>
           <input type="text" id="nombre" name="nombre" required /><br /><br />
-
+      
           <p><label for="email">Correo electrónico:</label></p>
           <input type="email" id="email" name="email" required /><br /><br />
-
-          <p><label for="mensaje">Mensaje:</label><br /></p>
-          <textarea
-            id="mensaje"
-            name="mensaje"
-            rows="4"
-            cols="50"
-            required
-          ></textarea
-          ><br /><br />
+      
+          <p><label for="mensaje">Mensaje:</label></p>
+          <textarea id="mensaje" name="mensaje" rows="4" required></textarea><br /><br />
           <button
-            onclick="
-                alert('Lo sentimos pero el formulario no está disponible en estos momentos, por favor contáctanos por nuestras redes sociales.')"
+            onclick="alert('Lo sentimos pero el formulario no está disponible en estos momentos, por favor contáctanos por nuestras redes sociales.')"
           >
             Enviar
           </button>
-          <!-- <input type="submit" value="Enviar"> -->
         </form>
       </div>
     </div>

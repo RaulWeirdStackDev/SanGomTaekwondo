@@ -9,20 +9,23 @@ html {
   flex-direction: column; /* Distribuir hijos verticalmente */
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .portada {
   display: flex;
-  justify-content: center;
-  width: 100vw;
-  height: auto;
-  margin: 0;
-  padding: 0;
+  justify-content:left;
+  align-items: center;
 }
 
 .portada img {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  object-fit: cover;
+border-radius: 10%;
+height: 250px;
+margin: 20px;
+
 }
 
 .contenedor {
@@ -44,17 +47,9 @@ nav ul {
   border-bottom: solid black 15px;
 }
 
-main {
-  flex: 1; /* Hacer que el main ocupe todo el espacio disponible */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 
-main img {
-  max-width: 100%;
-  max-height: auto;
-}
+
+
 
 .map-container {
   flex: 1;
@@ -85,7 +80,7 @@ main img {
 }
 
 .Misión,
-.visión {
+.visión, .textoPortada {
   padding: 20px;
   margin: 2cm;
   background-color: aliceblue;
@@ -210,6 +205,33 @@ footer {
   width: 100%;
   padding: 20px 0;
   margin-top: auto; /* Empujar el footer al fondo si hay espacio */
+}
+
+.siguenos-en-redes-sociales {
+  display: flex;
+  align-items: center;
+}
+
+.social-link {
+  margin-right: 20px; /* Espacio entre cada enlace */
+  color: #fff; /* Color del texto */
+  text-decoration: none; /* Quita el subrayado de los enlaces */
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease; /* Transición suave al pasar el cursor */
+}
+
+.social-link:last-child {
+  margin-right: 0; /* El último enlace no necesita margen derecho */
+}
+
+.social-link:hover {
+  color: #38bdf8; /* Color al pasar el cursor */
+}
+
+.social-link i {
+  margin-right: 8px; /* Espacio entre el icono y el texto */
+  font-size: 18px; /* Tamaño del icono */
 }
 
 .index {

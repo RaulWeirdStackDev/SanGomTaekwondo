@@ -22,34 +22,28 @@
     <link rel="stylesheet" href="./Assets/css/San_Gom.css">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <img src="./Assets/img/Logo_San_Gom-removebg-preview.png" alt="Logo de San-Gom" width="110px" height="100%" class="d-inline-block align-text-top">
-        <p class="mx-5 my-5 fs-1">San-Gom Taekwondo Center</p>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-0 mb-lg-0 fs-2 justify-content-evenly">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="./index.html">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="./San_Gom_Quienes_Somos.html">Quienes Somos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="./San_Gom_Servicios.html">Servicios</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="./San_Gom_galeria.html">Galería</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="./San_Gom_Contacto.html">Contacto</a>
-                </li>
+    <header class="header">
+        <div class="container">
+          <div class="logo">
+            <img src="./Assets/img/Logo_San_Gom-removebg-preview.png" alt="San-Gom Logo" class="logo-img">
+            <h1 class="logo-text">San-Gom Taekwondo Center</h1>
+          </div>
+    
+          <nav class="main-nav">
+            <ul class="nav-list">
+              <li><a href="./index.html" class="nav-link active">Inicio</a></li>
+              <li><a href="./San_Gom_Quienes_Somos.html" class="nav-link">Quienes Somos</a></li>
+              <li><a href="./San_Gom_Servicios.html" class="nav-link">Servicios</a></li>
+              <li><a href="./San_Gom_galeria.html" class="nav-link">Galería</a></li>
+              <li><a href="./San_Gom_Contacto.html" class="nav-link">Contacto</a></li>
             </ul>
+          </nav>
+    
+          <button class="menu-toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+          </button>
         </div>
-    </div>
-</nav>
+      </header>
         <header>
         </header>
         <div class="container mt-5">
@@ -141,26 +135,11 @@
           </div>
         </div>
       </footer>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {         
-            var path = window.location.pathname;
-            var page = path.split("/").pop();
-            
-           
-            var navLinks = document.querySelectorAll('.nav-link');
-    
-           
-            navLinks.forEach(function(link) {
-                link.classList.remove('active');
-            });
-    
-           
-            navLinks.forEach(function(link) {
-                if (link.getAttribute('href').includes(page)) {
-                    link.classList.add('active');
-                }
-            });
+      <script>
+        // Simple toggle for mobile menu
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+          document.querySelector('.main-nav').classList.toggle('active');
         });
-    </script> 
+      </script>
 </body>
 </html>

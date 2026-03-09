@@ -51,6 +51,7 @@
       --kyoku-color: #dc2626;
       --kudo-color: #7c3aed;
       --func-color: #059669;
+      --danza-color: #be185d;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -258,6 +259,7 @@
     .chip-kyoku     { background: linear-gradient(135deg, var(--kyoku-color), #991b1b); }
     .chip-kudo      { background: linear-gradient(135deg, var(--kudo-color), #5b21b6); }
     .chip-func      { background: linear-gradient(135deg, var(--func-color), #047857); }
+    .chip-danza     { background: linear-gradient(135deg, var(--danza-color), #9d174d); }
 
     /* ───── CARDS BELOW TABLE (mobile compact) ───── */
     .day-cards-wrap {
@@ -467,6 +469,7 @@
     <div class="legend-pill"><span class="legend-dot" style="background:var(--kyoku-color)"></span> Kyokushin</div>
     <div class="legend-pill"><span class="legend-dot" style="background:var(--kudo-color)"></span> Kudo</div>
     <div class="legend-pill"><span class="legend-dot" style="background:var(--func-color)"></span> Funcional</div>
+    <div class="legend-pill"><span class="legend-dot" style="background:var(--danza-color)"></span> Danza Árabe</div>
   </div>
 
   <!-- ═══ SCHEDULE ═══ -->
@@ -487,7 +490,7 @@
       <div class="info-card">
         <i class="fa-solid fa-user-tie"></i>
         <h4>Profesores</h4>
-        <p>Rodrigo Sáez<br>Eduardo Luengo</p>
+        <p>Rodrigo Sáez<br>Eduardo Luengo<br>Alejandra Guzmán</p>
       </div>
       <div class="info-card">
         <i class="fa-brands fa-whatsapp"></i>
@@ -625,9 +628,9 @@
           <!-- 19:00 -->
           <tr>
             <td class="time-cell">19:00 – 20:00</td>
-            <td class="empty-cell"></td>
+            <td><div class="class-chip chip-danza"><span class="chip-name">Danza Árabe</span><span class="chip-age">19:15 – 20:15</span><span class="chip-prof">A. Guzmán</span></div></td>
             <td><div class="class-chip chip-tkd-child"><span class="chip-name">TKD Infantil</span><span class="chip-age">5 – 12 años</span><span class="chip-prof">R. Sáez</span></div></td>
-            <td class="empty-cell"></td>
+            <td><div class="class-chip chip-danza"><span class="chip-name">Danza Árabe</span><span class="chip-age">Todos los niveles</span><span class="chip-prof">A. Guzmán</span></div></td>
             <td><div class="class-chip chip-tkd-child"><span class="chip-name">TKD Infantil</span><span class="chip-age">5 – 12 años</span><span class="chip-prof">R. Sáez</span></div></td>
             <td class="empty-cell"></td>
             <td class="empty-cell"></td>
@@ -636,7 +639,7 @@
           <!-- 20:00 -->
           <tr>
             <td class="time-cell">20:00 – 21:00</td>
-            <td class="empty-cell"></td>
+            <td><div class="class-chip chip-danza"><span class="chip-name">Danza Árabe</span><span class="chip-age">20:30 – 21:30</span><span class="chip-prof">A. Guzmán</span></div></td>
             <td><div class="class-chip chip-tkd-adult"><span class="chip-name">TKD Adultos</span><span class="chip-age">Desde 13 años</span><span class="chip-prof">R. Sáez</span></div></td>
             <td><div class="class-chip chip-kyoku"><span class="chip-name">Kyokushin</span><span class="chip-age">Niños y Adultos</span><span class="chip-prof">E. Luengo</span></div></td>
             <td><div class="class-chip chip-tkd-adult"><span class="chip-name">TKD Adultos</span><span class="chip-age">Desde 13 años</span><span class="chip-prof">R. Sáez</span></div></td>
@@ -681,6 +684,20 @@
               <div class="mci-detail">hasta 18:00 · Todos los niveles · R. Sáez</div>
             </div>
           </div>
+          <div class="mobile-class-row" style="border-color:var(--danza-color)">
+            <span class="time-badge">19:15</span>
+            <div class="mobile-class-info">
+              <div class="mci-name" style="color:var(--danza-color)">Danza Árabe</div>
+              <div class="mci-detail">hasta 20:15 · A. Guzmán</div>
+            </div>
+          </div>
+          <div class="mobile-class-row" style="border-color:var(--danza-color)">
+            <span class="time-badge">20:30</span>
+            <div class="mobile-class-info">
+              <div class="mci-name" style="color:var(--danza-color)">Danza Árabe</div>
+              <div class="mci-detail">hasta 21:30 · A. Guzmán</div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -721,6 +738,13 @@
             <div class="mobile-class-info">
               <div class="mci-name" style="color:var(--func-color)">Funcional</div>
               <div class="mci-detail">hasta 18:00 · Todos los niveles · R. Sáez</div>
+            </div>
+          </div>
+          <div class="mobile-class-row" style="border-color:var(--danza-color)">
+            <span class="time-badge">19:00</span>
+            <div class="mobile-class-info">
+              <div class="mci-name" style="color:var(--danza-color)">Danza Árabe</div>
+              <div class="mci-detail">hasta 20:00 · A. Guzmán</div>
             </div>
           </div>
           <div class="mobile-class-row" style="border-color:var(--kyoku-color)">

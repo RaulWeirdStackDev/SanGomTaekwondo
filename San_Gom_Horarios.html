@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Horarios de clases en San-Gom Taekwondo Center. Taekwondo, Kyokushin, Kudo y Entrenamiento Funcional en Villa Alemana.">
+  <title>Horarios | San-Gom Taekwondo Center</title>
+  <script src="https://kit.fontawesome.com/a6a387f34a.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/png" href="/Assets/img/favicon-32x32.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EMVZPMR310"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-EMVZPMR310');
+  </script>
+
+  <style>
+    :root {
+      --color-primary: #0284c7;
+      --color-primary-dark: #0369a1;
+      --color-primary-light: #38bdf8;
+      --color-white: #ffffff;
+      --color-black: #111827;
+      --color-gray-50: #f9fafb;
+      --color-gray-100: #f3f4f6;
+      --color-gray-200: #e5e7eb;
+      --color-gray-300: #d1d5db;
+      --color-gray-400: #9ca3af;
+      --color-gray-500: #6b7280;
+      --color-gray-600: #4b5563;
+      --color-gray-700: #374151;
+      --color-gray-800: #1f2937;
+      --color-gray-900: #111827;
+      --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
+      --shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+      --border-radius: 0.375rem;
+
+      /* Discipline colors */
+      --tkd-color: #0284c7;
+      --tkd-child-color: #0ea5e9;
+      --kyoku-color: #dc2626;
+      --kudo-color: #7c3aed;
+      --func-color: #059669;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body, html {
+      background: linear-gradient(to right, var(--color-primary-dark), var(--color-primary));
+      margin: 0; padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Barlow', sans-serif;
+    }
+
+    /* ───── HEADER ───── */
+    .header {
+      background-color: var(--color-white);
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+    }
+    .logo { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-img { width: 60px; height: 60px; border-radius: 50%; }
+    .logo-text { font-size: 1.25rem; font-weight: 700; color: var(--color-gray-800); margin: 0; }
+    .main-nav { display: none; }
+    .main-nav.active {
+      display: block;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background-color: var(--color-white);
+      box-shadow: var(--shadow);
+      padding: 1rem;
+    }
+    .nav-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; margin: 0; padding: 0; }
+    .nav-link { color: var(--color-gray-600); text-decoration: none; font-weight: 500; transition: color 0.2s ease; }
+    .nav-link:hover, .nav-link.active { color: var(--color-primary); }
+    .menu-toggle { display: block; background: none; border: none; cursor: pointer; color: var(--color-gray-800); }
+
+    /* ───── PAGE HERO ───── */
+    .schedule-hero {
+      background: rgba(0,0,0,0.18);
+      padding: 3rem 1rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .schedule-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent, transparent 18px,
+        rgba(255,255,255,0.03) 18px, rgba(255,255,255,0.03) 36px
+      );
+    }
+    .schedule-hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin: 0 0 0.4rem;
+      position: relative;
+    }
+    .schedule-hero p {
+      color: rgba(255,255,255,0.82);
+      font-size: 1.1rem;
+      margin: 0;
+      position: relative;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    /* ───── LEGEND PILLS ───── */
+    .legend-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 1.5rem 1rem;
+    }
+    .legend-pill {
+      display: flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 100px;
+      padding: 0.4rem 1rem;
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 600;
+      backdrop-filter: blur(4px);
+    }
+    .legend-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ───── SCHEDULE GRID ───── */
+    .schedule-section {
+      padding: 0 1rem 3rem;
+      flex: 1;
+    }
+
+    /* ── Weekly table ── */
+    .schedule-table-wrap {
+      background: var(--color-white);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+      overflow-x: auto;
+    }
+
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 620px;
+    }
+
+    .schedule-table thead th {
+      background: var(--color-gray-900);
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 1rem 0.75rem;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .schedule-table thead th:first-child {
+      background: var(--color-gray-800);
+      text-align: left;
+      padding-left: 1.25rem;
+    }
+
+    .schedule-table tbody tr:nth-child(even) td { background: var(--color-gray-50); }
+    .schedule-table tbody tr:nth-child(odd) td { background: var(--color-white); }
+    .schedule-table tbody tr:hover td { background: #e0f2fe; transition: background 0.15s; }
+
+    .time-cell {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-gray-700);
+      padding: 0.85rem 1.25rem;
+      white-space: nowrap;
+      border-right: 2px solid var(--color-gray-200);
+      min-width: 110px;
+    }
+
+    .schedule-table td {
+      padding: 0.6rem 0.5rem;
+      text-align: center;
+      vertical-align: middle;
+      border-bottom: 1px solid var(--color-gray-200);
+    }
+
+    /* Class chips inside cells */
+    .class-chip {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      border-radius: 8px;
+      padding: 0.45rem 0.65rem;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 600;
+      line-height: 1.3;
+      width: 100%;
+      max-width: 130px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .class-chip:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0,0,0,0.22); }
+    .class-chip .chip-name { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.03em; }
+    .class-chip .chip-age  { font-size: 0.7rem; opacity: 0.88; }
+    .class-chip .chip-prof { font-size: 0.68rem; opacity: 0.78; font-style: italic; }
+
+    .empty-cell { background: repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(0,0,0,0.025) 4px, rgba(0,0,0,0.025) 8px) !important; }
+
+    .chip-tkd-child { background: linear-gradient(135deg, var(--tkd-child-color), #0369a1); }
+    .chip-tkd-adult { background: linear-gradient(135deg, var(--tkd-color), #01578a); }
+    .chip-kyoku     { background: linear-gradient(135deg, var(--kyoku-color), #991b1b); }
+    .chip-kudo      { background: linear-gradient(135deg, var(--kudo-color), #5b21b6); }
+    .chip-func      { background: linear-gradient(135deg, var(--func-color), #047857); }
+
+    /* ───── CARDS BELOW TABLE (mobile compact) ───── */
+    .day-cards-wrap {
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 0 0 2rem;
+    }
+    .day-card {
+      background: rgba(255,255,255,0.97);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+    }
+    .day-card-header {
+      background: var(--color-gray-900);
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.75rem 1.25rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .day-card-body { padding: 0.5rem 1rem 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .mobile-class-row {
+      display: flex; align-items: center; gap: 0.75rem;
+      background: var(--color-gray-50);
+      border-radius: 8px;
+      padding: 0.6rem 0.75rem;
+      border-left: 4px solid;
+    }
+    .mobile-class-row .time-badge {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 1rem;
+      color: var(--color-gray-800);
+      min-width: 78px;
+      white-space: nowrap;
+    }
+    .mobile-class-info { flex: 1; }
+    .mobile-class-info .mci-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800; font-size: 1rem;
+      text-transform: uppercase; letter-spacing: 0.03em;
+      color: var(--color-gray-900);
+    }
+    .mobile-class-info .mci-detail { font-size: 0.78rem; color: var(--color-gray-500); }
+
+    /* ───── INFO CARDS ROW ───── */
+    .info-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 0 0 2rem;
+    }
+    .info-card {
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      color: #fff;
+      backdrop-filter: blur(4px);
+      text-align: center;
+    }
+    .info-card i { font-size: 1.6rem; margin-bottom: 0.5rem; opacity: 0.9; }
+    .info-card h4 { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 1.1rem; margin: 0 0 0.3rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .info-card p  { font-size: 0.88rem; margin: 0; opacity: 0.85; line-height: 1.5; }
+
+    /* ───── INSTRUCTOR CTA ───── */
+    .instructor-cta {
+      background: rgba(255,255,255,0.97);
+      border-radius: 1.25rem;
+      padding: 2.5rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.22);
+      border-left: 6px solid var(--color-primary);
+    }
+    .cta-icon {
+      font-size: 3.5rem;
+      color: var(--color-primary);
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .cta-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--color-gray-900);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin: 0 0 0.5rem;
+    }
+    .cta-text {
+      color: var(--color-gray-600);
+      font-size: 0.97rem;
+      line-height: 1.6;
+      margin: 0 0 1.25rem;
+    }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 14px rgba(37,211,102,0.4);
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37,211,102,0.5);
+      color: #fff;
+    }
+    @media (max-width: 600px) {
+      .instructor-cta { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.5rem; }
+      .cta-icon { font-size: 2.5rem; }
+      .cta-title { font-size: 1.3rem; }
+    }
+
+    /* ───── FOOTER ───── */
+    .footer { background-color: var(--color-gray-800); color: var(--color-white); padding: 3rem 0 1.5rem; }
+    .footer-content { display: grid; gap: 2rem; }
+    .footer-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; }
+    .footer-text { color: var(--color-gray-300); line-height: 1.7; }
+    .footer-bottom { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--color-gray-700); text-align: center; }
+    a { text-decoration: none; color: inherit; }
+    .copyright { color: var(--color-gray-400); font-size: 0.875rem; }
+    .social-link { margin-right: 20px; color: #fff; text-decoration: none; display: flex; align-items: center; transition: color 0.3s ease; }
+    .social-link:last-child { margin-right: 0; }
+    .social-link:hover { color: #38bdf8; }
+    .social-link i { margin-right: 8px; font-size: 18px; }
+    .siguenos-en-redes-sociales { display: flex; align-items: center; }
+
+    /* ───── FREE CLASS BANNER ───── */
+    .free-class-banner {
+      background: linear-gradient(135deg, #065f46, #059669);
+      color: #fff;
+      text-align: center;
+      padding: 0.9rem 1rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .free-class-banner i { margin-right: 0.4rem; }
+
+    /* ───── RESPONSIVE ───── */
+    @media (min-width: 576px) {
+      .main-nav { display: block; }
+      .nav-list { flex-direction: row; gap: 2rem; }
+      .menu-toggle { display: none; }
+      .footer-content { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 767px) {
+      .schedule-table-wrap { display: none; }
+      .day-cards-wrap { display: flex; }
+      .info-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="./Assets/img/Logo_San_Gom-removebg-preview.png" alt="San-Gom Logo" class="logo-img">
+        <h1 class="logo-text">San-Gom Taekwondo Center</h1>
+      </div>
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="./index.html" class="nav-link">Inicio</a></li>
+          <li><a href="./San_Gom_Quienes_Somos.html" class="nav-link">Quienes Somos</a></li>
+          <li><a href="./San_Gom_Servicios.html" class="nav-link">Servicios</a></li>
+          <li><a href="./San_Gom_Horarios.html" class="nav-link active">Horarios</a></li>
+          <li><a href="./San_Gom_galeria.html" class="nav-link">Galería</a></li>
+          <li><a href="./San_Gom_Contacto.html" class="nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══ HERO ═══ -->
+  <div class="schedule-hero">
+    <div class="hero-badge"><i class="fa-solid fa-calendar-days me-1"></i> Programación Semanal</div>
+    <h1>Horarios de Clases</h1>
+    <p>Encuentra tu horario ideal y comienza hoy — primera clase gratis en todos los cursos</p>
+  </div>
+
+  <!-- ═══ FREE CLASS BANNER ═══ -->
+  <div class="free-class-banner">
+    <i class="fa-solid fa-gift"></i> ¡Todas las disciplinas incluyen una primera clase de cortesía!
+  </div>
+
+  <!-- ═══ LEGEND ═══ -->
+  <div class="legend-wrap">
+    <div class="legend-pill"><span class="legend-dot" style="background:var(--tkd-child-color)"></span> TKD Infantil</div>
+    <div class="legend-pill"><span class="legend-dot" style="background:var(--tkd-color)"></span> TKD Adultos</div>
+    <div class="legend-pill"><span class="legend-dot" style="background:var(--kyoku-color)"></span> Kyokushin</div>
+    <div class="legend-pill"><span class="legend-dot" style="background:var(--kudo-color)"></span> Kudo</div>
+    <div class="legend-pill"><span class="legend-dot" style="background:var(--func-color)"></span> Funcional</div>
+  </div>
+
+  <!-- ═══ SCHEDULE ═══ -->
+  <div class="schedule-section container">
+
+    <!-- INFO CARDS -->
+    <div class="info-row">
+      <div class="info-card">
+        <i class="fa-solid fa-map-marker-alt"></i>
+        <h4>Ubicación</h4>
+        <p>Av. Valparaíso 2650<br>Villa Alemana, Chile</p>
+      </div>
+      <div class="info-card">
+        <i class="fa-solid fa-money-bill-wave"></i>
+        <h4>Matrícula</h4>
+        <p>$10.000 para todos los planes</p>
+      </div>
+      <div class="info-card">
+        <i class="fa-solid fa-user-tie"></i>
+        <h4>Profesores</h4>
+        <p>Rodrigo Sáez<br>Eduardo Luengo</p>
+      </div>
+      <div class="info-card">
+        <i class="fa-brands fa-whatsapp"></i>
+        <h4>Contacto</h4>
+        <p><a href="https://wa.me/56979849519" style="color:#fff;text-decoration:underline">+56 9 7984 9519</a></p>
+      </div>
+    </div>
+
+    <!-- ── DESKTOP TABLE ── -->
+    <div class="schedule-table-wrap">
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>Horario</th>
+            <th>Lunes</th>
+            <th>Martes</th>
+            <th>Miércoles</th>
+            <th>Jueves</th>
+            <th>Viernes</th>
+            <th>Sábado</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <!-- 09:00 -->
+          <tr>
+            <td class="time-cell">09:00 – 10:00</td>
+            <td><div class="class-chip chip-func"><span class="chip-name">Funcional</span><span class="chip-age">Todos los niveles</span><span class="chip-prof">R. Sáez</span></div></td>
+            <td class="empty-cell"></td>
+            <td><div class="class-chip chip-func"><span class="chip-name">Funcional</span><span class="chip-age">Todos los niveles</span><span class="chip-prof">R. Sáez</span></div></td>
+            <td class="empty-cell"></td>
+            <td><div class="class-chip chip-func"><span class="chip-name">Funcional</span><span class="chip-age">Todos los niveles</span><span class="chip-prof">R. Sáez</span></div></td>
+            <td class="empty-cell"></td>
+          </tr>
+
+          <!-- 10:00 -->
+          <tr>
+            <td class="time-cell">10:00 – 11:00</td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td><div class="class-chip chip-tkd-child"><span class="chip-name">TKD Infantil</span><span class="chip-age">5 – 12 años</span><span class="chip-prof">R. Sáez</span></div></td>
+          </tr>
+
+          <!-- 11:00 -->
+          <tr>
+            <td class="time-cell">11:00 – 12:00</td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td><div class="class-chip chip-tkd-adult"><span class="chip-name">TKD Adultos</span><span class="chip-age">Desde 13 años</span><span class="chip-prof">R. Sáez</span></div></td>
+          </tr>
+
+          <!-- 12:00 -->
+          <tr>
+            <td class="time-cell">12:00 – 13:00</td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td><div class="class-chip chip-tkd-adult"><span class="chip-name">TKD Adultos</span><span class="chip-age">Desde 13 años</span><span class="chip-prof">R. Sáez</span></div></td>
+          </tr>
+
+          <!-- 13:00 -->
+          <tr>
+            <td class="time-cell">13:00 – 14:00</td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+          </tr>
+
+          <!-- 14:00 -->
+          <tr>
+            <td class="time-cell">14:00 – 15:00</td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+          </tr>
+
+          <!-- 15:00 -->
+          <tr>
+            <td class="time-cell">15:00 – 16:00</td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+          </tr>
+
+          <!-- 16:00 -->
+          <tr>
+            <td class="time-cell">16:00 – 17:00</td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+          </tr>
+
+          <!-- 17:00 -->
+          <tr>
+            <td class="time-cell">17:00 – 18:00</td>
+            <td><div class="class-chip chip-func"><span class="chip-name">Funcional</span><span class="chip-age">Todos los niveles</span><span class="chip-prof">R. Sáez</span></div></td>
+            <td class="empty-cell"></td>
+            <td><div class="class-chip chip-func"><span class="chip-name">Funcional</span><span class="chip-age">Todos los niveles</span><span class="chip-prof">R. Sáez</span></div></td>
+            <td class="empty-cell"></td>
+            <td><div class="class-chip chip-func"><span class="chip-name">Funcional</span><span class="chip-age">Todos los niveles</span><span class="chip-prof">R. Sáez</span></div></td>
+            <td><div class="class-chip chip-kudo"><span class="chip-name">Kudo</span><span class="chip-age">Niños y Adultos</span><span class="chip-prof">E. Luengo</span></div></td>
+          </tr>
+
+          <!-- 18:00 -->
+          <tr>
+            <td class="time-cell">18:00 – 19:00</td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+          </tr>
+
+          <!-- 19:00 -->
+          <tr>
+            <td class="time-cell">19:00 – 20:00</td>
+            <td class="empty-cell"></td>
+            <td><div class="class-chip chip-tkd-child"><span class="chip-name">TKD Infantil</span><span class="chip-age">5 – 12 años</span><span class="chip-prof">R. Sáez</span></div></td>
+            <td class="empty-cell"></td>
+            <td><div class="class-chip chip-tkd-child"><span class="chip-name">TKD Infantil</span><span class="chip-age">5 – 12 años</span><span class="chip-prof">R. Sáez</span></div></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+          </tr>
+
+          <!-- 20:00 -->
+          <tr>
+            <td class="time-cell">20:00 – 21:00</td>
+            <td class="empty-cell"></td>
+            <td><div class="class-chip chip-tkd-adult"><span class="chip-name">TKD Adultos</span><span class="chip-age">Desde 13 años</span><span class="chip-prof">R. Sáez</span></div></td>
+            <td><div class="class-chip chip-kyoku"><span class="chip-name">Kyokushin</span><span class="chip-age">Niños y Adultos</span><span class="chip-prof">E. Luengo</span></div></td>
+            <td><div class="class-chip chip-tkd-adult"><span class="chip-name">TKD Adultos</span><span class="chip-age">Desde 13 años</span><span class="chip-prof">R. Sáez</span></div></td>
+            <td><div class="class-chip chip-kyoku"><span class="chip-name">Kyokushin</span><span class="chip-age">Niños y Adultos</span><span class="chip-prof">E. Luengo</span></div></td>
+            <td class="empty-cell"></td>
+          </tr>
+
+          <!-- 21:00 -->
+          <tr>
+            <td class="time-cell">21:00 – 21:30</td>
+            <td class="empty-cell"></td>
+            <td><div class="class-chip chip-tkd-adult"><span class="chip-name">TKD Adultos</span><span class="chip-age">Desde 13 años</span><span class="chip-prof">R. Sáez</span></div></td>
+            <td class="empty-cell"></td>
+            <td><div class="class-chip chip-tkd-adult"><span class="chip-name">TKD Adultos</span><span class="chip-age">Desde 13 años</span><span class="chip-prof">R. Sáez</span></div></td>
+            <td class="empty-cell"></td>
+            <td class="empty-cell"></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div><!-- /schedule-table-wrap -->
+
+
+    <!-- ── MOBILE CARDS ── -->
+    <div class="day-cards-wrap">
+
+      <!-- LUNES -->
+      <div class="day-card">
+        <div class="day-card-header"><i class="fa-solid fa-circle-dot" style="color:var(--func-color)"></i> Lunes</div>
+        <div class="day-card-body">
+          <div class="mobile-class-row" style="border-color:var(--func-color)">
+            <span class="time-badge">09:00</span>
+            <div class="mobile-class-info">
+              <div class="mci-name" style="color:var(--func-color)">Funcional</div>
+              <div class="mci-detail">hasta 10:00 · Todos los niveles · R. Sáez</div>
+            </div>
+          </div>
+          <div class="mobile-class-row" style="border-color:var(--func-color)">
+            <span class="time-badge">17:00</span>
+            <div class="mobile-class-info">
+              <div class="mci-name" style="color:var(--func-color)">Funcional</div>
+              <div class="mci-detail">hasta 18:00 · Todos los niveles · R. Sáez</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MARTES -->
+      <div class="day-card">
+        <div class="day-card-header"><i class="fa-solid fa-circle-dot" style="color:var(--tkd-child-color)"></i> Martes</div>
+        <div class="day-card-body">
+          <div class="mobile-class-row" style="border-color:var(--tkd-child-color)">
+            <span class="time-badge">19:00</span>
+            <div class="mobile-class-info">
+              <div class="mci-name" style="color:var(--tkd-child-color)">TKD Infantil</div>
+              <div class="mci-detail">hasta 20:00 · 5-12 años · R. Sáez</div>
+            </div>
+          </div>
+          <div class="mobile-class-row" style="border-color:var(--tkd-color)">
+            <span class="time-badge">20:00</span>
+            <div class="mobile-class-info">
+              <div class="mci-name" style="color:var(--tkd-color)">TKD Adultos</div>
+              <div class="mci-detail">hasta 21:30 · Desde 13 años · R. Sáez</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MIÉRCOLES -->
+      <div class="day-card">
+        <div class="day-card-header"><i class="fa-solid fa-circle-dot" style="color:var(--func-color)"></i> Miércoles</div>
+        <div class="day-card-body">
+          <div class="mobile-class-row" style="border-color:var(--func-color)">
+            <span class="time-badge">09:00</span>
+            <div class="mobile-class-info">
+              <div class="mci-name" style="color:var(--func-color)">Funcional</div>
+              <div class="mci-detail">hasta 10:00 · Todos los niveles · R. Sáez</div>
+            </div>
+          </div>
+          <div class="mobile-class-row" style="border-color:var(--func-color)">
+            <span class="time-badge">17:00</span>
+            <div class="mobile-class-info">
+              <div class="mci-name" style="color:var(--func-color)">Funcional</div>
+              <div class="mci-detail">hasta 18:00 · Todos los niveles · R. Sáez</div>
+            </div>
+          </div>
+          <div class="mobile-class-row" style="border-color:var(--kyoku-color)">
+            <span class="time-badge">20:15</span>
+            <div class="mobile-class-info">
+              <div class="mci-name" style="color:var(--kyoku-color)">Kyokushin</div>
+              <div class="mci-detail">Niños y Adultos · E. Luengo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JUEVES -->
+      <div class="day-card">
+        <div class="day-card-header"><i class="fa-solid fa-circle-dot" style="color:var(--tkd-child-color)"></i> Jueves</div>
+        <div class="day-card-body">
+          <div class="mobile-class-row" style="border-color:var(--tkd-child-color)">
+            <span class="time-badge">19:00</span>
+            <div class="mobile-class-info">
+              <div class="mci-name" style="color:var(--tkd-child-color)">TKD Infantil</div>
+              <div class="mci-detail">hasta 20:00 · 5-12 años · R. Sáez</div>
+            </div>
+          </div>
+          <div class="mobile-class-row" style="border-color:var(--tkd-color)">
+            <span class="time-badge">20:00</span>
+            <div class="mobile-class-info">
+              <div class="mci-name" style="color:var(--tkd-color)">TKD Adultos</div>
+              <div class="mci-detail">hasta 21:30 · Desde 13 años · R. Sáez</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIERNES -->
+      <div class="day-card">
+        <div class="day-card-header"><i class="fa-solid fa-circle-dot" style="color:var(--func-color)"></i> Viernes</div>
+        <div class="day-card-body">
+          <div class="mobile-class-row" style="border-color:var(--func-color)">
+            <span class="time-badge">09:00</span>
+            <div class="mobile-class-info">
+              <div class="mci-name" style="color:var(--func-color)">Funcional</div>
+              <div class="mci-detail">hasta 10:00 · Todos los niveles · R. Sáez</div>
+            </div>
+          </div>
+          <div class="mobile-class-row" style="border-color:var(--func-color)">
+            <span class="time-badge">17:00</span>
+            <div class="mobile-class-info">
+              <div class="mci-name" style="color:var(--func-color)">Funcional</div>
+              <div class="mci-detail">hasta 18:00 · Todos los niveles · R. Sáez</div>
+            </div>
+          </div>
+          <div class="mobile-class-row" style="border-color:var(--kyoku-color)">
+            <span class="time-badge">20:15</span>
+            <div class="mobile-class-info">
+              <div class="mci-name" style="color:var(--kyoku-color)">Kyokushin</div>
+              <div class="mci-detail">Niños y Adultos · E. Luengo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SÁBADO -->
+      <div class="day-card">
+        <div class="day-card-header"><i class="fa-solid fa-star" style="color:#fbbf24"></i> Sábado</div>
+        <div class="day-card-body">
+          <div class="mobile-class-row" style="border-color:var(--tkd-child-color)">
+            <span class="time-badge">10:00</span>
+            <div class="mobile-class-info">
+              <div class="mci-name" style="color:var(--tkd-child-color)">TKD Infantil</div>
+              <div class="mci-detail">hasta 11:00 · 5-12 años · R. Sáez</div>
+            </div>
+          </div>
+          <div class="mobile-class-row" style="border-color:var(--tkd-color)">
+            <span class="time-badge">11:00</span>
+            <div class="mobile-class-info">
+              <div class="mci-name" style="color:var(--tkd-color)">TKD Adultos</div>
+              <div class="mci-detail">hasta 12:30 · Desde 13 años · R. Sáez</div>
+            </div>
+          </div>
+          <div class="mobile-class-row" style="border-color:var(--kudo-color)">
+            <span class="time-badge">17:00</span>
+            <div class="mobile-class-info">
+              <div class="mci-name" style="color:var(--kudo-color)">Kudo</div>
+              <div class="mci-detail">Niños y Adultos · E. Luengo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /day-cards-wrap -->
+
+  </div><!-- /schedule-section -->
+
+
+  <!-- ═══ CTA INSTRUCTOR ═══ -->
+  <div class="container mb-5">
+    <div class="instructor-cta">
+      <div class="cta-icon"><i class="fa-solid fa-person-chalkboard"></i></div>
+      <div class="cta-body">
+        <h2 class="cta-title">¿Eres instructor de artes marciales o entrenamiento físico?</h2>
+        <p class="cta-text">Si tienes una disciplina que quieras enseñar en San-Gom, hay horarios disponibles. Conversemos sobre condiciones y cómo sumarte al equipo.</p>
+        <a href="https://wa.me/56979849519" target="_blank" class="cta-btn">
+          <i class="fa-brands fa-whatsapp me-2"></i> Contáctame por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3 class="footer-title">San-Gom Taekwondo Center</h3>
+          <p class="footer-text">Formando campeones.</p>
+        </div>
+        <div class="footer-column">
+          <h3 class="footer-title">Síguenos en redes sociales</h3>
+          <div class="siguenos-en-redes-sociales">
+            <a href="https://wa.me/56979849519" target="_blank" class="social-link"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            <a href="https://www.instagram.com/sangom.taekwondo/" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="https://www.tiktok.com/@sangom.taekwondo" target="_blank" class="social-link"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <a href="San_Gom_Contacto.html"><h3 class="footer-title">Ubicación</h3></a>
+          <p class="footer-text">Av. Valparaíso 2650, Villa Alemana, Chile</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="copyright">© <script>document.write(new Date().getFullYear())</script> San-Gom Taekwondo Center. Creado por <a href="https://raulrodriguez.cl/" target="_blank">Raúl Rodríguez - Soluciones Informáticas</a>. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      document.querySelector('.main-nav').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
